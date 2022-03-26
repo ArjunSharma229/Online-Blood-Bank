@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      body{
+        background-image: linear-gradient(#343A40,#5E2E33);
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .card
+        {   
+ 
+            -webkit-box-shadow: 10px 10px 47px -9px rgba(0,0,0,0.75);
+            -moz-box-shadow: 10px 10px 47px -9px rgba(0,0,0,0.75);
+            box-shadow: 10px 10px 47px -9px rgba(0,0,0,0.75);
+
+        }
+
+        /* .card:hover{
+          border-color: white;
+        } */
+      
+      
+    </style>
+
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" style="font-family: 'Adamina';">Online Blood Bank</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html"> <button type="button" class="btn btn-dark">Home</button> <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="homepage.html"> <button type="button" class="btn btn-dark">Blood Bank</button> <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="register.html"> <button type="button" class="btn btn-dark">Admin Register</button> <span class="sr-only"></span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#"> <button type="button" class="btn btn-dark">About Us</button> <span class="sr-only"></span></a>
+            </li>
+
+
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-dark" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+      <div class="container" style="margin-top: 4%;">
+        <div class="row">
+          <div class="col-3">
+            
+          </div>
+          <div class="col-6">
+            <div class="card text-center" style="margin-top:60px; background-color: rgb(52,58,64, 0.3);">
+              <div class="card-header" style="color: white;" >
+                <strong>  LOG IN </strong>
+              </div>
+              
+              <div class="card-body">
+                      <form method="POST" action="login.php">
+                                  <br>
+                                  <input type="text" class="form-control" placeholder="Enter Username" name="username" required style="background-color:rgb(52,58,64, 0) ;">
+                                  <br>
+                                  <input type="password" class="form-control" placeholder="Password" name="password" required style="background-color:rgb(52,58,64, 0) ;">
+                                  <br>
+                                  <br>
+                                  <button type="submit" name="submit" class="btn btn-secondary btn-lg btn-block">SUBMIT</button>
+                      </form>
+              </div>
+          
+          <div class="card-footer text-muted">
+              <a href="register.html" style="text-decoration: none; color: white;">New here? Register</a>
+          </div>
+  </div>
+          </div>
+          <div class="col-3">
+            
+          </div>
+        </div>
+      </div>
+</body>
+</html>
