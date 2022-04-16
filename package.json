@@ -1,5 +1,24 @@
 {
   "dependencies": {
-    "firebase": "^9.6.7"
-  }
+    "firebase": "^9.6.7",
+    "mysql": "^2.18.1"
+  },
+  "name": "miniproject",
+  "version": "1.0.0",
+  "main": "location.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArjunSharma229/Online-Blood-Bank.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArjunSharma229/Online-Blood-Bank/issues"
+  },
+  "homepage": "https://github.com/ArjunSharma229/Online-Blood-Bank#readme",
+  "description": ""
 }
