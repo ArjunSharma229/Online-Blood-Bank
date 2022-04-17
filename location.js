@@ -13,9 +13,11 @@ const successfullLookup = (position) => {
   console.log("You are from " + suburb)
   showResult.textContent = data.results[0].components.suburb;
   console.log(data);
-
   })
 };
+ 
+
 
 navigator.geolocation.getCurrentPosition(successfullLookup,console.log);
+
 
