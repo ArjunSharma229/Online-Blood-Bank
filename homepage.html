@@ -14,54 +14,6 @@
         width: 100vw;
       }
 
-      #loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
-  width: 120px;
-  height: 120px;
-  margin: -76px 0 0 -76px;
-  border: 16px solid #343A40;
-  border-radius: 50%;
-  border-top: 16px solid #5E2E33;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-}
-
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Add animation to "page content" */
-.animate-bottom {
-  position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
-  animation-name: animatebottom;
-  animation-duration: 1s
-}
-
-@-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
-}
-
-@keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
-}
-
-#myDiv {
-  display: none;
-  text-align: center;
-}
       .card
         {   
  
@@ -74,13 +26,22 @@
         /* .card:hover{
           border-color: white;
         } */
-      
+
+
+        table{
+          text-align: center;
+          background-color: aliceblue;
+          margin-left: 25%;
+          margin-right: 25%;
+          width: 50%;
+          border-radius: 1%;
+        }
       
     </style>
     <script src="location.js"></script>
     <script src="logic.js"></script>
   </head>
-<body onload="myFunction()" style="margin: 0;">
+<body>
   <div id="loader"></div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#" style="font-family: 'Adamina';">Online Blood Bank</a>
@@ -114,7 +75,6 @@
           </form>
         </div>
       </nav>
-      <div id = "myDiv" class = "animate-bottom" style="display:none;">
       <h2 style="color: white; text-align: center;font-family: Adamina;">Showing Results for Blood Banks in:</h2>
       <h2 id = "showResult" style="color: white; text-align: center;font-family: Adamina;"></h2>
       <div class="container" style="margin-top: 4%;">
@@ -130,19 +90,33 @@
           </div>
         </div>
       </div>
-    </div>
-
+    <table>
+      <tr>
+        <th>Sr No.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Location</th>
+        <th>Address</th>
+      </tr>
+    </table>
     <script>
-      var myVar;
-      
-      function myFunction() {
-        myVar = setTimeout(showPage, 2000);
-      }
-      
-      function showPage() {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("myDiv").style.display = "block";
-      }
+            onload = fetch("./bank_deets.csv").then(res => {
+            return res.text()
+        }).then(data => {
+            let result = data.split(/\r?\n|\r/).map
+            (e => {
+                return e.split(",")
+            })
+            console.log(result);
+            result.forEach(e => {
+                let m = e.map(e => {
+                    return `<td> ${e} </td>`;
+                }).join("")
+                let ce = document.createElement("tr");
+                ce.innerHTML = m;
+                document.querySelector("table").appendChild(ce);
+            })
+        })
       </script>
 </body>
 </html>

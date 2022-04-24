@@ -8,6 +8,20 @@
     <link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
+
+      body{
+        background-image: linear-gradient(#343A40,#5E2E33);
+        height: 100vh;
+        width: 100vw;
+      }
+      
+      h2{
+        font-family: 'Adamina';
+      }
+      hr{
+        background-color: white;
+        
+      }
       #loader {
         position: absolute;
         left: 50%;
@@ -18,7 +32,7 @@
         margin: -76px 0 0 -76px;
         border: 16px solid #f3f3f3;
         border-radius: 50%;
-        border-top: 16px solid #3498db;
+        border-top: 16px solid #5E2E33;
         -webkit-animation: spin 2s linear infinite;
         animation: spin 2s linear infinite;
       }
@@ -52,20 +66,6 @@
         to{ bottom:0; opacity:1 }
       }
 
-      body{
-        background-image: linear-gradient(#343A40,#5E2E33);
-        height: 100vh;
-        width: 100vw;
-      }
-      
-      h2{
-        font-family: 'Adamina';
-      }
-      hr{
-        background-color: white;
-        
-      }
-
       .card
         {   
             -webkit-box-shadow: 10px 10px 47px -9px rgba(0,0,0,0.75);
@@ -82,8 +82,8 @@
 
     <script src="location.js"></script>
   </head>
-<body>
-  <div class="loader"></div>
+<body onload="myFunction()" style="margin: 0;">
+  <div id="loader"></div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#" style="font-family: 'Adamina';">Online Blood Bank</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,11 +117,12 @@
       </nav>
       <h2 style="text-align: center; color: white; margin-top: 1%;">Striving Towards Eliminating Casualties Due To Lack Of Blood</h2>
       <hr>
+<div id="myDiv" class="animate-bottom" style="display: none;">     
       <div class="container" style="margin-top: 2%;">
         <div class="row">
           <div class="col-1">
               
-          </div>
+          </div>  
           <div class="col-5" id="col-5">
             <a href="homepage.html" style="text-decoration: none;">
             <div class="card text-center" style="margin-top:60px; background-color: rgb(52,58,64, 0);">
@@ -132,7 +133,7 @@
                 <p>Click here to get directed to the Browsing Page</p>
           <br>
           <br>
-                <p>Click here to browse thorugh the blood bank</p>
+                <p>Click here to browse through the blood bank</p>
               </div>
         
           </div>
@@ -159,7 +160,6 @@
         </div>
       </div>
     
-
     <div class="container">
       <div class="row">
         <div class="col-1">
@@ -169,7 +169,7 @@
           <div class="card text-center" style="margin-top:60px; background-color: rgb(52,58,64, 0);  border-color: white;">
 
             <div class="card-body" style="color: white; ">
-              <p><marquee>Every year 12,000 people die in India, alone, because of not getting blood in time | </marquee></p>
+              <p>Every year 12,000 people die in India, alone, because of not getting blood in time</p>
             </div>
         </div>
             
@@ -179,7 +179,6 @@
         </div>
       </div>
     </div>
-
     <nav class="navbar fixed-bottom navbar-light bg-dark" style="height: 60px;; background-color:#5E2E33">
       <span class="text-muted"><em>Designed & developed by Arjun, Rajvardhan, Shreyash, Sujit</em></span>
     </nav>
@@ -222,7 +221,7 @@
       var myVar;
       
       function myFunction() {
-        myVar = setTimeout(showPage, 3000);
+        myVar = setTimeout(showPage, 1000);
       }
       
       function showPage() {

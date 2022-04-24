@@ -22,7 +22,7 @@ if(isset($_POST['username'])){
 
             echo('<script>alert("Login succesful")</script>');
 
-            echo('<script>window.location="home.php.html"</script>');
+            echo('<script>window.location="register_test.php"</script>');
 
 
         }
