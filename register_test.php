@@ -3,8 +3,9 @@
 
 $error = '';
 $name = '';
-$email = '';
-$subject = '';
+$address = '';
+$latitude = '';
+$longitude = '';
 $message = '';
 
 function clean_text($string)
@@ -29,29 +30,34 @@ if(isset($_POST["submit"]))
    $error .= '<p><label class="text-danger">Only letters and white space allowed</label></p>';
   }
  }
- if(empty($_POST["email"]))
+ if(empty($_POST["address"]))
  {
   $error .= '<p><label class="text-danger">Please Enter your Email</label></p>';
  }
  else
  {
-  $email = clean_text($_POST["email"]);
-  if(!filter_var($email, FILTER_VALIDATE_EMAIL))
-  {
-   $error .= '<p><label class="text-danger">Invalid email format</label></p>';
-  }
+  $address = clean_text($_POST["address"]);
  }
- if(empty($_POST["subject"]))
+ if(empty($_POST["latitude"]))
  {
-  $error .= '<p><label class="text-danger">Subject is required</label></p>';
+  $error .= '<p><label class="text-danger">Latitude is required</label></p>';
  }
  else
  {
-  $subject = clean_text($_POST["subject"]);
+  $latitude = clean_text($_POST["latitude"]);
  }
+ if(empty($_POST["longitude"]))
+ {
+  $error .= '<p><label class="text-danger">Longitude is required</label></p>';
+ }
+ else
+ {
+  $longitude = clean_text($_POST["longitude"]);
+ }
+
  if(empty($_POST["message"]))
  {
-  $error .= '<p><label class="text-danger">Message is required</label></p>';
+  $error .= '<p><label class="text-danger">Notes are required</label></p>';
  }
  else
  {
@@ -67,17 +73,18 @@ if(isset($_POST["submit"]))
    $no_rows = ($no_rows - 1) + 1;
   }
   $form_data = array(
-   'sr_no'  => $no_rows,
    'name'  => $name,
-   'email'  => $email,
-   'subject' => $subject,
+   'address'  => $address,
+   'latitude' => $latitude,
+   'longitude' => $longitude,
    'message' => $message
   );
   fputcsv($file_open, $form_data);
   $error = '<label class="text-success">Thank you for contacting us</label>';
   $name = '';
-  $email = '';
-  $subject = '';
+  $address = '';
+  $latitude = '';
+  $longitude = '';
   $message = '';
  }
 }
@@ -167,7 +174,7 @@ if(isset($_POST["submit"]))
                   
                   <div class="card-body">
                           <form method="post">
-                          <h3 align="center">Contact Form</h3>
+                          <h3 align="center">Details Form</h3>
      <br>
      <?php echo $error; ?>
      <div class="form-group">
@@ -175,17 +182,22 @@ if(isset($_POST["submit"]))
       <input type="text" name="name" placeholder="Enter Name" class="form-control" value="<?php echo $name; ?>" />
      </div>
      <div class="form-group">
-      <label>Enter Email</label>
-      <input type="text" name="email" class="form-control" placeholder="Enter Email" value="<?php echo $email; ?>" />
-     </div>
-     <div class="form-group">
-      <label>Enter Location</label>
-      <input type="text" name="subject" class="form-control" placeholder="Enter Location" value="<?php echo $subject; ?>" />
-     </div>
-     <div class="form-group">
       <label>Enter Address</label>
-      <textarea name="message" class="form-control" placeholder="Enter Message"><?php echo $message; ?></textarea>
+      <textarea name="address" class="form-control" placeholder="Enter Address"><?php echo $message; ?></textarea>
      </div>
+     <div class="form-group">
+      <label>Enter Latitude</label>
+      <input type="text" name="latitude" class="form-control" placeholder="Enter Latitude" value="<?php echo $latitude; ?>" />
+     </div>
+     <div class="form-group">
+      <label>Enter Longitude</label>
+      <input type="text" name="longitude" class="form-control" placeholder="Enter Longitude" value="<?php echo $longitude; ?>" />
+     </div>
+     <div class="form-group">
+      <label>Enter Additional Notes</label>
+      <input name="message" class="form-control" placeholder="Enter Location" value="<?php echo $message; ?>" />
+     </div>
+
      <div class="form-group" align="center">
       <input type="submit" name="submit" class="btn btn-info" value="Submit" />
      </div>
